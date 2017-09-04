@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Quora</title>
+
+	<style>
+		body{
+			background-color: #EEE;
+			margin: 0;
+		}
+		#site_header{
+			/*position: absolute;*/
+			margin-left: 0;
+			margin-top: 0;
+			width: 100%;
+			height: 50px;
+			background-color: white;
+		}
+
+		a {
+			text-decoration: none;
+			color: #bf0127;
+		}
+
+		#navigation{
+			font-size: larger;
+			font-family: sans-serif;
+			padding-left: 10%;
+			padding-top: 15px;
+			/*margin-top: 15px;*/
+		}
+
+		.header-inner{
+			padding-left: 2%; 
+			padding-right: 2%;
+			padding-top: 1%; 
+			padding-bottom: 1%
+		}
+
+		.header-inner:hover{
+			/*color: #424242;*/
+			background-color: #DDDDDD; 
+		}
+
+		#ask_ques{
+			background-color: white;
+			width: 40%;
+			/*text-align: center;*/
+			margin: auto;
+			margin-top: 20px;
+			/*height: 50px;*/
+			padding-top: 30px;
+			padding-left: 15px;
+			padding-right: 20px;
+			padding-bottom: 10px; 
+		}
+
+		.ques-inner{
+			font-family: sans-serif;
+			font-size: larger;
+			color: #888;
+		}
+
+		.ques-inner:hover{
+			color: blue; 
+			/*background-color: red;*/
+		}
+
+		.sec-inner{
+			background-color: white;
+			width: 40%;
+			margin: auto;
+			margin-top: 10px;
+			padding-top: 5px;
+			padding-left: 15px;
+			padding-right: 20px;
+			padding-bottom: 10px;
+		}
+
+		.ques_article{
+			font-family: 'q_serif',Georgia,Times,"Times New Roman",serif;
+			color: black;
+		}
+
+		#aside_left_feed{
+			width: 12%;
+			float: left;
+			margin-left: 10%;
+			color: #666;
+		}
+
+		#aside_right_feed{
+			width: 12%;
+			float: right;
+			margin-right: 10%;
+			color: #666;
+		}
+
+		.feed_list{
+			padding: 0;
+			padding-left: 15px;
+			/*list-style-type: none;*/
+		}
+
+		.writer_list{
+			padding: 0;
+			padding-left: 15px;
+			/*list-style-type: none;*/
+		}
+
+
+	</style>
+
+
+</head>
+
+<body onload="display_home()">
+	<section class="header-sec" id="site_header">
+		<nav id="navigation">
+			<a  class="header-inner" onclick="display_quora()"> Quora</a> 
+			<a  class="header-inner" onclick="display_home()"> Home </a> 
+			<a  class="header-inner" onclick="display_world()"> Around The World </a>   	
+			<a  class="header-inner"> Account </a>
+	
+			<input type="text" name="search" placeholder="Search Quora" style="float: right; padding-left: 1%; margin-right: 10%; width: 20%; background-color: #EEE; border-color: #EEE; height: 15px;  ">
+		</nav>	
+	</section>
+
+	<div id="googleMap" style="width:70%;height:500px; float: left; margin-top: 2%"></div>
+
+	<script>
+		function myMap() {
+			var mapProp= {
+			    center:new google.maps.LatLng(51.508742,-0.120850),
+			    zoom:5,
+			};
+			var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+		}
+	</script>
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACl6B40e8qUEtLu_-WUWZPPG9a8SAi3aQ&callback=myMap"></script>
+
+	<section id="ask_ques">
+		<span class="ques-inner" id="ques_ask">Ask Your Question ?</span>
+	</section>
+
+	<aside id="aside_left_feed">
+		<h4>Feeds</h4>
+		<hr>
+		<ul class="feed_list">
+			<li>Football</li>
+			<li>Harry Potter</li>
+			<li>New Delhi</li>
+			<li>Internet and Web Systems</li>
+			<li>Information Theory</li>
+		</ul>
+
+		<br><br>
+
+		<h4>Favorite Writers</h4>
+		<hr>
+		<ul class="writer_list">
+			<li>Abhimanyu C</li>
+			<li>Eden Hazard</li>
+			<li>Rob Stark</li>
+			<li>Sid Mitra</li>
+			<li>Stuart Pearce</li>
+		</ul>
+		
+	</aside>
+
+	<aside id="aside_right_feed">
+		<h4>Trending Topics</h4>
+		<hr>
+		<ul class="feed_list">
+			<li>Politics</li>
+			<li>Crime</li>
+			<li>Movies</li>
+			<li>Environment</li>
+			<li>Education</li>
+		</ul>
+
+		<br><br>
+
+		<h4>Popular Writers</h4>
+		<hr>
+		<ul class="writer_list">
+			<li>Shaun Livinston</li>
+			<li>Hope Solo</li>
+			<li>John Doe</li>
+			<li>Jane Smith</li>
+			<li>Luke Castellan</li>
+		</ul>
+		
+	</aside>
+
+	<section id="home_ques_1" class="sec-inner">
+		<article class="ques_article">
+			<h3>Has PSG ruined the football transfers by signimg Neymar and Mbappe for 200 mn?</h3>
+			<p>Technically the transfer of Zidane back in 2001 was a lot more controversial because it was more than half of the team’s revenue.
+			Getting Mbappe on loan with a future buyout is something that happens quite often in other clubs. It’s a way to borrow money from the future and is a standard way of doing business in the football world. English clubs do it all the time in order to get the transfer done before the transfer window shuts, Italian clubs do it because they want to borrow money from the future.<br>
+			PSG (and Manchester City to some extent) are exploiting the loopholes available in the FFP. They did it a few years back and were fined 60 million Euros (IIRC) and didn’t flinch an eyelid about it (they also had to compete in the Champions League with a 21-man squad instead of a 25-man squad). What will probably happen again is that they’ll be given another fine, that will be promptly paid by their owners using their pocket change.<br>
+			They haven’t ruined the transfer system though. Chinese/Middle Eastern clubs are doing the same (but they’re too far away for us to care). They’re only paying a slightly inflated price for Neymar if you take into account the marketing benefits he will bring to the club and what other clubs like Real Madrid were willing to pay for Mbappe. Sure they have brought a lot of money into football, but this money will trickle down the bottom of the football pyramid. In the end of the day, the transfer of one player, no matter who he is, doesn’t break the system.</p>
+		</article>
+	</section>
+
+
+
+	<section id="home_ques_2" class="sec-inner">
+		<article class="ques_article">
+			<h3>What death in Harry Potter was unnecessary?</h3>
+			<p> Truth be told all but 10 deaths were unnecessary. The necessary deaths are as follows:
+			<ul>
+			<li>The 7 people Voldemort killed to make Horcruxes. (Necessary for obvious reasons)</li>
+			<li>James and Lilly Potter. They set the plot in motion, and Lilly’s sacrifice is what keeps Harry safe through his many encounters with the Dark Lord. (I call Voldmeort dark lord a lot in my answers, I'm probably a Death Eater)</li>
+			<li>Dumbledore. If he was around he would have destroyed the Horcuxes, amd Voldemort, so he had to leave in order for Harry to embark on his final journey.</li> 
+			</ul>		
+			That's right not even Voldemort’s death was necessary. The reason why all other deaths are unnecsary is because they are not critical to the plot. This is a war but only a dozen or so people die… it's already a severely low amount of deaths for such a horrible war, so might as well cut it to almost none.
+			So let's discuss some of the well known unnecessary deaths.
+			<ul>
+			<li>Frank the gardener- this scene can be told just with Voldemort and Wormtail talking, no need to add an old man stumbling upon them.</li>
+			<li>Quirrel- he can just go into hiding or sent to Azkaban, turning to dust is a little dramatic. (Thats right it's over dramatic director of the 8th movie)</li>
+			<li>Moaning Murttle- Seriously Slytherins monster gets released twice and only manages to kill 1 girl.</li>
+			<li>Cedric- Harry could have easily reached the cup solo, and nothing about the story would change. Mostly what upsets me is the fact that the 2 Hogwarts champions dominate all 3 tasks, and fleur the only girl is incompetent in the 2nd task.</li>
+			<li>Sirius- seriously (see what I did there) this death just makes me lose respect for Harry, because his childish ignorance leads to an innocent man who has suffered for over a decade to die.</li>
+			<li>Remus, Tonks, Fred— all unnecessary casualties of war, because they were meant to remind people that people die in war, but they also remind everyone only a few of the main cast dies. I feel a lot more people are upset they died then would be upset if they didn't die.</li>
+			<li>Snape- I think it would have been much better if Snape would have showed Harry the memories right when Harry was discovered to be in the castle. Then he should have let Voldemort know he was truly on Dumbledore’s side the whole time. That way Dumbledore could defeat him from the grave one last time, just like he did many times before starting with the first time he met young Tom.</li>	
+			</ul>
+			</p>
+			
+		</article>
+	</section>
+
+	<section id="quora_ques_1" class="sec-inner">
+		<article class="ques_article">
+			<h3>How can Putin afford such an ultra-luxury Patek watch with his government salary?</h3>
+			<p>Please - no kidding - Putin and … salary. He is a new Russian tsar. He can afford whatever he wants. And … he can give it to whom he wants :) Here is a picture on which he is giving his Blackpain to a metalworker.<br>PS. You never have Patek - don’t you know their slogan “You never actually own a Patek Philippe. You merely look after it for the next generation.”  :) So … Putin don’t have Patek - he just cares about it for his descendants … </p>	
+		</article>
+	</section>
+
+	<section id="quora_ques_2" class="sec-inner">
+		<article class="ques_article">
+			<h3>Why hasn't democracy been working in the Middle East so far in so many countries?</h3>
+			<p>If democracy was such a good system, tell me why is it that democracy only works in countries where institutions are so large that democratic change doesn’t matter? Sure you play a game of musical chairs every few years, and then what? The people with money in their pockets get what they want while the common people who were given so much attention during the election campaign are now ignored, too bad so sad. What I’m seeing are systems made up of liars who would do anything just to get re-elected, they would sell their soul to the devil just to secure that chair of theirs. Entire groups are marginalized as a form of fear tactic to get people to vote for a certain individual or party like sheep.<br> Whenever I hear of elections be it in France, Britain, the US, or Austria for instance arguments are always “Vote for the lesser of two evils”. What? Why can’t I vote for someone good? Well I could but good luck getting them to win. Why would I want a system which further strengthens oligarchs and screws me; the citizen, over. Let me use an example closer to home.<br>Kuwait, my country. The most democratic or second most in the Arab World. The elected parliament that has legislative powers has served the wealthy merchants more so than any single group of people. Why? Because their loyalty is cheap. In economics its always assumed the logical thing and most natural is what would benefit the businessman. The businessman cares not except that which would benefit him. They fight over the rights to sponsor infrastructural projects being built by international companies, increasing costs by the government by many times more than if the company built it on their own. No and even if they didn’t win the rights to it, they would none the less try very hard to ruin it for the other sponsor, ruining it for the rest of the country in the process. The parliament gives more power to the merchant class than it does the common people, and traditionally it has been the ruler who safeguarded the rights of the people. Democracy is making us fall behind in important areas like infrastructure, in either case the average person has no power so can I get the amazing infrastructure please?
+			<br>Then there is the “dividing” factor. A system which relies on the marginalization of the other or dividing society is not welcomed. Democrat or Republican? Tory or Labour? More of an identity than political opinion. If we had democracy in the Western fashion every tribe, sect, and social class would have a party. Society is divided enough thank you very much. You know what brought Hitler to power? Democracy. How? Pitting everyone against the Jews and the “asocial elements of society”. You know that German democracy is actual democracy because it actually brought change to Germany, in America institutions are too large for a change in the head to matter because if Donald Trump actually had any de facto power that mattered I assure you, America would be on the verge of collapse but he doesn’t.<br>Indeed, it was the facade of democracy that brought us such tyrants as Jamal Abdulnasser, Saddam Hussein, Ali Abdullah Saleh, Hafez Al Assad and his son among others. It is these countries that attempted to install a Western system of government on their lands that are the most corrupt, least educated, and wriddled with poverty. Those countries that retained the form of government they have developed themselves over centuries, the Gulf States in particular are some of the most educated people in the world, the wealth is distributed from the government so everyone benefits, free healthcare, free education. Many point to education being key to a functioning democracy, and that any educated society should “naturally” be democratic. No, our system developed differently than yours. You have your own flawed political system and we have our own flawed political system. Every political system is flawed one way or the other, there is not one perfect system built for all.<br>We had no feudalism, in our societies there were freemen and slaves and those slaves tended to become free eventually. Everyone maintained their lineages not just nobility, everyone knew where they hailed from and from who they hailed. We have tribes and clans. We have sects. We governed ourselves our way and you your way based on how we developed historically. You can’t expect a system born and bred say in France and make it work in China. As much as the West likes to call the Gulf States “tyrannical”, we are not we have our own system. The ruler opens his door to hear the complaints of the people. The ruling families live alongside regular people, they go to school with us, work with us, befriend us, and they have marriage ties to many families in society that binds society together in a form of familial system. Without systems we develop on our own based on our experiences you get strongman rule found in the Arab Republics.<br>Democracy is not the perfect system as people have been brought up to think. The Western system is not the perfect system. Our system isn’t perfect either. If we go enforce our system on you, it won’t work; just as your system won’t work for us if you attempt to enforce it on us. Our societies are different and were formed differently. That doesn’t make either of us superior to the other, but it does make us different.	</p>
+			
+		</article>
+	</section>
+
+
+	<script>
+		function hide() {
+			document.getElementById("googleMap").style.display="none";
+			document.getElementById("ask_ques").style.display="none";
+			document.getElementById("home_ques_1").style.display="none";
+			document.getElementById("home_ques_2").style.display="none";
+			document.getElementById("aside_left_feed").style.display="none";
+			document.getElementById("aside_right_feed").style.display="none";
+			document.getElementById("quora_ques_1").style.display="none";
+			document.getElementById("quora_ques_2").style.display="none";
+		}
+
+		function display_home() {
+			hide();
+			document.getElementById("ask_ques").style.display="block";
+			document.getElementById("home_ques_1").style.display="block";
+			document.getElementById("home_ques_2").style.display="block";
+			document.getElementById("aside_left_feed").style.display="block";
+			document.getElementById("aside_right_feed").style.display="block";
+		}
+
+		function display_quora() {
+			hide();
+			document.getElementById("ask_ques").style.display="block";
+			document.getElementById("quora_ques_1").style.display="block";
+			document.getElementById("quora_ques_2").style.display="block";
+			document.getElementById("aside_left_feed").style.display="block";
+			document.getElementById("aside_right_feed").style.display="block";
+		}
+
+		function display_world() {
+			hide();
+			document.getElementById("googleMap").style.display="block";
+		}
+	</script>
+
+
+
+
+</body>
+</html>
